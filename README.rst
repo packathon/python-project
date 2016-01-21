@@ -1,6 +1,9 @@
-# Örnek Python Pakedi
+===================
+Örnek Python Pakedi
+===================
 
-## Nelere ihtiyacınız var?
+Nelere ihtiyacınız var?
+-----------------------
 
 * Herhangi bir GNU/Linux dağıtımı ya da OS X. Windows kullanıyorsanız Google en
   yakın dostunuz.
@@ -12,9 +15,10 @@
 * [Test PyPI](https://testpypi.python.org/pypi) hesabı (Pakedimizi yayınlamadan
   önce burada test edeceğiz)
 
-TODO: ^^ markup markdown
+.. TODO: ^^ markup markdown
 
-## Dosya yapısı
+Dosya yapısı
+------------
 
 :requirements/requirements.txt: Pakedinizi yazarken kullandığınız üçüncü parti
     paketlerin listesi.
@@ -39,74 +43,70 @@ TODO: ^^ markup markdown
     kullanacağız.
 :hello/: Pakedimizin içeriği.
 
-## `.pypirc` ayar dosyası
+``.pypirc`` ayar dosyası
+------------------------
 
 Pakedimizi PyPI'a yüklerken PyPI kullanıcı bilgilerimizi buraya gireceğiz.
-Varsayılan olarak dosya `$HOME` dizi altında olmalı.
+Varsayılan olarak dosya ``$HOME`` dizi altında olmalı.
 
-### Örnek
+Örnek
+~~~~~
 
-```ini
-[distutils]
-index-servers =
-    pypi
-    test
+.. code-block:: ini
 
-[test]
-repository = https://testpypi.python.org/pypi
-username = <TESTPYPI_KULLANICI_ADINIZ>
-password = <TESTPYPI_PAROLANIZ>
+    [distutils]
+    index-servers =
+        pypi
+        test
 
-[pypi]
-repository = http://pypi.python.org/pypi
-username = <PYPI_KULLANICI_ADINIZ>
-password = <PYPI_PAROLANIZ>
-```
+    [test]
+    repository = https://testpypi.python.org/pypi
+    username = <TESTPYPI_KULLANICI_ADINIZ>
+    password = <TESTPYPI_PAROLANIZ>
+
+    [pypi]
+    repository = http://pypi.python.org/pypi
+    username = <PYPI_KULLANICI_ADINIZ>
+    password = <PYPI_PAROLANIZ>
 
 
-## Geliştirme ortamının kurulması
+Geliştirme ortamının kurulması
+------------------------------
 
-Önce projemizin olduğu dizine girip virtualenv oluşturuyoruz:
+Önce projemizin olduğu dizine girip virtualenv oluşturuyoruz::
 
-```sh
-$ python3.4 -m venv venv
-```
+    $ python3.4 -m venv venv
 
-virtualenv'ı aktifleştiriyoruz:
+virtualenv'ı aktifleştiriyoruz::
 
-```sh
-$ . venv/bin/activate
-```
+    $ . venv/bin/activate
 
 Bu aşamadan sonra, konsolda ``$`` yerine ``(venv) $`` görmelisiniz.
 
-Pakedimizi kuruyoruz:
+Pakedimizi kuruyoruz::
 
-```sh
-$ pip install -e .
-```
+    $ pip install -e .
 
 Bu adım aynı zamanda ``requirements/requirements.txt`` içinde belirttiğimiz
 bağımlılıkları da kuracak. Ancak belgelerimizi HTML'e çevirmek için Sphinx'e
-ihtiyacımız var:
+ihtiyacımız var::
 
-```sh
-$ pip install -r requirements/dev-requirements.txt
-```
+    $ pip install -r requirements/dev-requirements.txt
 
-TODO: -e nedir ne değildir anlat
+.. TODO: -e nedir ne değildir anlat
 
-Testleri çalıştırıyoruz:
+Testleri çalıştırıyoruz::
 
-```sh
-$ python setup.py test
-```
-
-## Test PyPI'a paket yüklemek
-
-TODO
+    $ python setup.py test
 
 
-## Sık kullanılan komutlar
+Test PyPI'a paket yüklemek
+--------------------------
+
+.. TODO
+
+
+Sık kullanılan komutlar
+-----------------------
 
 * Belgelerinizi HTML formatına çevirmek için: ``make -C docs html``
