@@ -1,5 +1,5 @@
 ===================
-Örnek Python Pakedi
+Örnek Python Paketi
 ===================
 
 Nelere ihtiyacınız var?
@@ -12,7 +12,7 @@ Nelere ihtiyacınız var?
   yok)
 * setuptools (pip ile beraber geliyor, ayrıca kurmanıza gerek yok)
 * [PyPI (Python Package Index)](https://pypi.python.org/pypi) hesabı
-* [Test PyPI](https://testpypi.python.org/pypi) hesabı (Pakedimizi yayınlamadan
+* [Test PyPI](https://testpypi.python.org/pypi) hesabı (Paketimizi yayınlamadan
   önce burada test edeceğiz)
 
 .. TODO: ^^ markup markdown
@@ -20,33 +20,33 @@ Nelere ihtiyacınız var?
 Dosya yapısı
 ------------
 
-:requirements/requirements.txt: Pakedinizi yazarken kullandığınız üçüncü parti
+:requirements/requirements.txt: Paketinizi yazarken kullandığınız üçüncü parti
     paketlerin listesi.
-:requirements/dev-requirements.txt: ``requirements.txt``'den farkı pakedinizin
+:requirements/dev-requirements.txt: ``requirements.txt``'den farkı paketinizin
     kurulabilir olması için bu paketlerin zorunlu olmaması. Örneğin, testleri
     çalıştırmak ya da belgelerini HTML'e çevirmek için gereken şeyleri burada
     belirtmelisiniz.
 :Makefile: Sık kullanılan komutları sürekli tekrar etmemek için kullanacağız.
     Şu anki komutlar:
 
-    * ``make release``: Pakedimizin yeni versiyonunu yayınlamak için kullanacağız.
+    * ``make release``: Paketimizin yeni versiyonunu yayınlamak için kullanacağız.
     * ``make test-release``: ``make release`` ile aynı işi Test PyPI üzerinde yapar.
-    * ``make register``: Pakedinizin ilk versiyonunu yüklemeden önce adını kayıt etmek için kullanılacak.
-    * ``make test-register``: Pakedinizi Test PyPI'da kayıt eder.
+    * ``make register``: Paketinizin ilk versiyonunu yüklemeden önce adını kayıt etmek için kullanılacak.
+    * ``make test-register``: Paketinizi Test PyPI'da kayıt eder.
 :setup.py: ``pip install requests`` dediğiniz pip'in requests'i yüklemek için
-    kullandığı dosya. Pakedimizin adı, versiyonu, neleri içerdiği gibi şeyleri
+    kullandığı dosya. Paketimizin adı, versiyonu, neleri içerdiği gibi şeyleri
     burada belirteceğiz.
 :MANIFEST.in: Template, README, lisans dosyaları vb. gibi Python modulü olmayan
     içerikleri burada belirtiyoruz.
-:docs/: Pakedimizin belgeleri bu klasör içinde olacak. Neredeyse her Python
+:docs/: Paketimizin belgeleri bu klasör içinde olacak. Neredeyse her Python
     projesinde olduğu gibi biz de [Sphinx](http://www.sphinx-doc.org/en/stable/)
     kullanacağız.
-:hello/: Pakedimizin içeriği.
+:hello/: Paketimizin içeriği.
 
 ``.pypirc`` ayar dosyası
 ------------------------
 
-Pakedimizi PyPI'a yüklerken PyPI kullanıcı bilgilerimizi buraya gireceğiz.
+Paketimizi PyPI'a yüklerken PyPI kullanıcı bilgilerimizi buraya gireceğiz.
 Varsayılan olarak dosya ``$HOME`` dizi altında olmalı.
 
 Örnek
@@ -83,7 +83,7 @@ virtualenv'ı aktifleştiriyoruz::
 
 Bu aşamadan sonra, konsolda ``$`` yerine ``(venv) $`` görmelisiniz.
 
-Pakedimizi kuruyoruz::
+Paketimizi kuruyoruz::
 
     $ pip install -e .
 
