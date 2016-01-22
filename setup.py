@@ -15,9 +15,10 @@ setup(
     author='Eric Idle',
     author_email='idle@gmail.com',
     url='https://github.com/berkerpeksag/hello',
-    # eger "pip install hello" denildiginde testlerin de kurulmasini
-    # istiyorsanız exclude=['tests'] kismini kaldirabilirsiniz
-    packages=find_packages(exclude=['tests']),
+    # eger "pip install hello" denildiginde testlerin kurulmasini
+    # istemiyorsaniz find_packages()'ı cagirirken exclude=['tests']
+    # ekleyebilirsiniz
+    packages=find_packages(),
     install_requires=install_requires,
     # tum listeyi https://pypi.python.org/pypi?%3Aaction=list_classifiers
     # adresinde bulabilirsiniz

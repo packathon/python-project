@@ -2,16 +2,24 @@
 Örnek Python Paketi
 ===================
 
-.. note::
-   Bu belge, en az eforla ilk Python paketinizi standart Python kütüphanesinde
-   yer alan araçları kullanarak geliştirmeniz ve PyPI üzerinde yayınlamanız
-   için ihtiyacınız olan şeyleri listelemektedir. Örneğin, testler için
-   pytest_ ya da nose_ yerine standart kütüphanede yer alan unittest_
-   paketini kullanacağız.
+.. image:: https://travis-ci.org/packathon/python-project.svg?branch=master
+    :target: https://travis-ci.org/packathon/python-project
+
+* Bu belge, en az eforla ilk Python paketinizi standart Python kütüphanesinde
+  yer alan araçları kullanarak geliştirmeniz ve PyPI üzerinde yayınlamanız
+  için ihtiyacınız olan şeyleri listelemektedir. Örneğin, testler için
+  pytest_ ya da nose_ yerine standart kütüphanede yer alan unittest_
+  paketini kullanacağız ve Wheel_ formatına değinmeyeceğiz.
+* Kod içerisinde çeşitli yerlerde daha fazla bilgi vermek için yorumlar
+  eklendi.
+* En güncel bilgiler için resmi Python belgelerine göz atabilirsiniz:
+  https://packaging.python.org/en/latest/
 
 .. _pytest: http://pytest.org/latest/
 .. _nose: https://nose.readthedocs.org/en/latest/
 .. _unittest: https://docs.python.org/3/library/unittest.html
+.. _Wheel: https://wheel.readthedocs.org/en/latest/
+
 
 Nelere ihtiyacınız var?
 -----------------------
@@ -27,6 +35,7 @@ Nelere ihtiyacınız var?
 
 .. _PyPI: https://pypi.python.org/pypi
 .. _`Test PyPI`: https://testpypi.python.org/pypi
+
 
 Dosya yapısı
 ------------
@@ -53,6 +62,7 @@ Dosya yapısı
     projesinde olduğu gibi biz de [Sphinx](http://www.sphinx-doc.org/en/stable/)
     kullanacağız.
 :hello/: Paketimizin içeriği.
+
 
 ``.pypirc`` ayar dosyası
 ------------------------
@@ -108,13 +118,43 @@ ihtiyacımız var::
 
 Testleri çalıştırıyoruz::
 
-    $ python setup.py test
+    $ python -m unittest discover
 
 
 Test PyPI'a paket yüklemek
 --------------------------
 
-.. TODO
+Paketimizi yayınlamadan önce paket adı gibi meta verileri PyPI'a göndermemiz
+gerekiyor. Ama önce her şeyin yolunda olup olmadığını kontrol için Test PyPI'ı
+kullanalım::
+
+    $ make test-register
+    # ya da
+    $ python setup.py sdist register -r test
+
+Paketimizi Test PyPI'a yüklemek için ``test-release`` komutunu kullanacağız::
+
+    $ make test-release
+    # ya da
+    $ python setup.py sdist upload -r test
+
+Eğer her şey yolunda gitti ise, şimdi yeni bir virtualenv yaratarak paketimizi
+kuralım::
+
+    # kullandığımız virtualenv'den çıkalım
+    $ deactivate
+    # yeni bir virtualenv oluşturalım
+    $ python -m venv test-venv
+    $ . test-venv/bin/activate
+
+Şimdi paketimizi Test PyPI'dan kurup kontrol edelim::
+
+    $ pip install -i https://testpypi.python.org/pypi <PAKET_ADI>
+    $ python -c "import hello; hello.say_hello('BYK')"
+    Hello, BYK!
+
+Eğer her şey beklediğiniz gibiyse, aynı adımları komutlardan ``test-`` kısmını
+kaldırarak takip edip ilk Python paketinizi PyPI_ üzerinde yayımlayabilirsiniz.
 
 
 Sık kullanılan komutlar
