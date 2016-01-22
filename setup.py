@@ -9,7 +9,7 @@ with open('requirements/requirements.txt') as f:
 
 setup(
     name='hello',
-    version='hello',
+    version='0.1',
     description='A hello word application',
     long_description=long_description,
     author='Eric Idle',

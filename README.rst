@@ -2,6 +2,17 @@
 Örnek Python Paketi
 ===================
 
+.. note::
+   Bu belge, en az eforla ilk Python paketinizi standart Python kütüphanesinde
+   yer alan araçları kullanarak geliştirmeniz ve PyPI üzerinde yayınlamanız
+   için ihtiyacınız olan şeyleri listelemektedir. Örneğin, testler için
+   pytest_ ya da nose_ yerine standart kütüphanede yer alan unittest_
+   paketini kullanacağız.
+
+.. _pytest: http://pytest.org/latest/
+.. _nose: https://nose.readthedocs.org/en/latest/
+.. _unittest: https://docs.python.org/3/library/unittest.html
+
 Nelere ihtiyacınız var?
 -----------------------
 
@@ -11,11 +22,11 @@ Nelere ihtiyacınız var?
 * pip (Güncel Python versiyonlarıyla beraber geliyor, ayrıca kurmanıza gerek
   yok)
 * setuptools (pip ile beraber geliyor, ayrıca kurmanıza gerek yok)
-* [PyPI (Python Package Index)](https://pypi.python.org/pypi) hesabı
-* [Test PyPI](https://testpypi.python.org/pypi) hesabı (Paketimizi yayınlamadan
-  önce burada test edeceğiz)
+* PyPI_ (Python Package Index) hesabı
+* `Test PyPI`_ hesabı (Paketimizi yayınlamadan önce burada test edeceğiz)
 
-.. TODO: ^^ markup markdown
+.. _PyPI: https://pypi.python.org/pypi
+.. _`Test PyPI`: https://testpypi.python.org/pypi
 
 Dosya yapısı
 ------------
@@ -110,3 +121,6 @@ Sık kullanılan komutlar
 -----------------------
 
 * Belgelerinizi HTML formatına çevirmek için: ``make -C docs html``
+* Testleri çalıştırmak için: ``python -m unittest discover`` (basit testler
+  için direkt olarak test dosyasını da çalıştırabilirsiniz:
+  ``python tests/test_hello.py``)
